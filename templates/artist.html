@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style2.css">
+    <title>{{.Name}}</title>
+    <link rel="icon" type="image/x-icon" href="{{.Image}}">
+    <style>
+        .obwii{
+            color:aliceblue
+        }
+        a{
+            text-decoration: none;
+            text-transform: uppercase;
+        
+        font-size: 22px;
+    text-transform: uppercase;
+    text-align: -moz-center;
+        }
+        body{
+            background-size: cover;
+        }
+    </style>
+     
+</head>
+<div class="home">
+  <a href="/">Go to homepage</a> 
+</div>
+ 
+<body>
+    <ul class="tab-head">
+        <!-- <li class="tablink ">ID</li> -->
+        <li class="tablink active">Name</li>
+        <li class="tablink">Members</li>
+        <li class="tablink">CreationDate</li>
+        <li class="tablink">FirstAlbum</li>
+        <li class="tablink">DatesLocation</li>
+    </ul>
+    
+    <div class="images">
+        <img src="{{.Image}}" alt="">
+    </div>
+    <!-- <div class="tabcontent"><p>ID: {{.ID}}</p></div> -->
+
+    <div class="tabcontent active">
+        <h1>{{.Name}}</h1>
+    </div>
+
+    <div class="tabcontent">
+        <div class="members">
+            {{ range .Members}}
+            <p>{{.}}</p>
+            {{end}}
+        </div>
+    </div>
+
+    <div class="tabcontent members">
+        <p>CreationDate:{{.CreationDate}}</p>
+    </div>
+    <div class="tabcontent members">
+        <p>FirstAlbum:{{.FirstAlbum}}</p>
+    </div>
+    <div class="tabcontent">
+        <div class ="obwii">
+            <div class="relations members">
+    
+                <ol>
+                    {{range $key, $value := .Relations.DatesLocation}}
+                    <li class="city">
+                        {{$key}}
+                    </li>
+                    <ul>    
+                        {{range $val:=$value}}
+                        <li>{{$val}}</li>
+                        {{end}}
+                    </ul>
+                    {{end}}       
+                </ol>
+                
+              
+             </div>
+        </div>
+       
+    </div>
+        
+       
+        <script>
+            
+    document.addEventListener('DOMContentLoaded', () => {
+        function tabsMain() {
+            let descParentTabs = document.querySelector('.tab-head')
+            let btn = document.querySelectorAll('.tablink');
+            let block = document.querySelectorAll('.tabcontent');
+            btn.forEach((key, index) => {
+                key.addEventListener('click', function() {
+                    block.forEach((item, itemindex) => {
+                        item.classList.toggle('active', index === itemindex)
+                        item.animate([
+                            { opacity: '0' },
+                            { opacity: '1' }
+                        ], { duration: 200, easing: 'ease-in' })
+                    });
+                });
+            });
+
+            descParentTabs.addEventListener('click', (e) => {
+                const target = e.target
+                if (target.classList.contains('tablink')) {
+                    btn.forEach(item => {
+                        item.classList.remove('active')
+                    })
+                }
+                target.classList.add('active')
+            });
+        }
+        tabsMain();
+    })
+        </script>
+
+
+
+</body>
+
+</html>

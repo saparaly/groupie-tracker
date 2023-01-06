@@ -1,0 +1,125 @@
+@font-face {
+    font-family: "Gotham";
+    font-weight: 400;
+    src: url("GloriaHallelujah-Regular.ttf") format("opentype");
+}
+body {
+    font-family: 'Gotham';
+
+    background-image: url(wp2831952.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    width: 1500px;
+    display: grid;
+    grid-gap: 60px;
+    height: 100vh;
+    text-align: center;
+}
+.images{
+    text-align: center;
+}
+h1 {
+  
+	-webkit-animation: blink 0.5s linear infinite; 
+	animation: blink 2s linear infinite; 
+	font-weight: bold; 
+	color: rgb(125, 121, 121);
+    font-size: 50px; 
+}
+
+@-webkit-keyframes blink { 
+	0% { color: burlywood; }
+	50% { color: #FBB; }
+	100% { color: blanchedalmond; }
+} 
+
+@keyframes blink {  
+	0% { color: rgb(229, 216, 216); }
+	50% { color: #FBB; }
+	100% { color: rgb(117, 92, 92); } 
+}
+.members{
+    padding: 20px 40px;
+    background: #968089; /* фон рамки */
+    font-size: 20px; /* размер шрифта */
+    border: 2px dashed #e3c3d4; /* размер, форма и цвет рамки */
+    border-radius: 10px; /*  радиус скругления углов рамки */
+    box-shadow: 0 0 0 4px #968089, 2px 1px 6px 4px rgba(150, 128, 137, 0.5); /* смещение, размер и цвет тени рамки*/
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      height: 300px;
+      overflow: auto;
+}
+.obwii{
+    color:floralwhite;
+}
+
+.relations{
+    width: 250px;
+    display: flex;
+    margin: 0 auto;
+}
+.city {
+    text-align: initial;
+}
+.tabcontent {
+    display: none;
+    margin-bottom: 30px;
+}
+.tabcontent.active{
+display: block;
+}
+.tab-head {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0 auto;
+}
+.tablink {
+    font-size: 22px;
+    color: #fff;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+.tablink.active, .tablink:hover {
+    color: orange;
+}
+.tabcontent {
+    font-size: 20px;
+    color: #fff;
+}
+@media (max-width:1600px) {
+body{
+    width:1000px;
+    height: 100vh;
+}
+
+
+
+    
+}
+@media(max-width:1000px){
+    body{
+        width:90%;
+        height: 100vh;
+    }
+    
+}
+@media (max-width:992px) {
+    .tab-head {
+     
+        gap: 10px;
+        padding: 0;
+    }
+    .tablink {
+        font-size: 14px;
+    }
+    .tab-head {
+        column-gap: 33px;
+     
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+    
+}

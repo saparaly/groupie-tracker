@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>groupie-tracker</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJzuF-DdY2MEVEGkuCiio1nH1Ht293pUiwjw&usqp=CAU">
+
+</head>
+<body>
+    <h1>Welcome to our project "groupie-tracker"</h1>
+
+    <div class="container">
+        <div class="groupie__items">
+            {{range .}}
+            <div class="groupie__item">
+                
+              
+                <a href="http://127.0.0.1:8000/artist/?id={{.ID}}"> <img src="{{.Image}}" alt=""></a>
+                <a href="http://127.0.0.1:8000/artist/?id={{.ID}}"class="name">{{.Name}}</a>
+            </div>
+             {{end}}
+        </div>
+    </div>
+</body>
+</html>
+    
